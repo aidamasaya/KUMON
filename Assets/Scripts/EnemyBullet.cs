@@ -38,6 +38,7 @@ public class EnemyBullet : MonoBehaviour
         }
         }
 
+    //“–‚½‚è”»’è
     private bool Collision()
     {
         float dx = Mathf.Abs(transform.position.x - _player.GetPos.x);

@@ -70,6 +70,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //“–‚½‚è”»’è
     private bool Collision()
     {
         float dx = Mathf.Abs(_pos.x - _bullet.GetPos.x);

@@ -26,14 +26,17 @@ public class Player : MonoBehaviour
     private float _gravityDrag = -0.003f;
     [SerializeField, Range(0, 1.0f)]
     private float _width = 0.5f;
+
     private float _timer;
     private int _life;
     public int Life { get => _life; set => _life = value; }
     private int _jumpCount = 0;
+
     private Vector2 _basePos = new Vector2(-3f, -4f);
     private Vector2 _pos;
     private Vector2 _baseVelo = new Vector2(0.0f, 0.3f);
     private Vector2 _velo;
+
     private float _radian;
     private Vector3 _point;
     public Vector3 Point => _point;
@@ -52,10 +55,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        //マウス検知
         _point = Input.mousePosition;
         _radian = Mathf.Atan2(_point.y, _point.x);
         transform.rotation = Quaternion.AngleAxis(_radian * 180 / Mathf.PI, new Vector3(0, 0, 1));
 
+        //ジャンプ
         if (Input.GetButtonDown("Jump") && !_jump && _jumpCount < 2)
         {
             _jumpCount++;
@@ -86,6 +91,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //移動
     void FixedUpdate()
     {
         Vector2 velo = new Vector2(0.0f, 0.0f);
